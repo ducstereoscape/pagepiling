@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>pagePiling.js plugin</title>
+<meta name="author" content="Alvaro Trigo Lopez" />
+<meta name="description" content="pagePiling.js plugin by Alvaro Trigo." />
+<meta name="keywords"  content="pile,piling,piling.js,stack,pages,scrolling,stacking,touch,fullpile,scroll,plugin,jquery" />
+<meta name="Resource-type" content="Document" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.css" />
+<link rel="stylesheet" type="text/css" href="css/examples.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pagepiling.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+
+			/*
+			* Plugin intialization
+			*/
+	    	$('#pagepiling').pagepiling({
+	    		menu: '#menu',
+	    		anchors: ['page1', 'page2', 'page3', 'page4'],
+			    sectionsColor: ['white', '#2C3E50', '#ee005a', '#39C'],
+			    navigation: {
+			    	'position': 'right',
+			   		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Page 4']
+			   	},
+			    afterRender: function(){
+			    	$('#pp-nav').addClass('custom');
+			    },
+			    afterLoad: function(anchorLink, index){
+			    	if(index>1){
+			    		$('#pp-nav').removeClass('custom');
+			    	}else{
+			    		$('#pp-nav').addClass('custom');
+			    	}
+			    }
+			});
+
+
+			/*
+		    * Internal use of the demo website
+		    */
+		    $('#showExamples').click(function(e){
+				e.stopPropagation();
+				e.preventDefault();
+				$('#examplesList').toggle();
+			});
+
+			$('html').click(function(){
+				$('#examplesList').hide();
+			});
+	    });
+    </script>
+<style>
+h2 {
+	font-size: 40px;
+}
+h3 {
+	font-size: 30px;
+}
+
+/* Section 1
+	 * --------------------------------------- */
+#section1 h1 {
+	color: #444;
+}
+#section1 p {
+	color: #333;
+	color: rgba(0,0,0,0.3);
+}
+#section1 img {
+	margin: 20px 0;
+	opacity: 0.7;
+}
+/* Section 2
+	 * --------------------------------------- */
+#section2 h1, #section2 p {
+	z-index: 3;
+}
+#section2 p {
+	opacity: 0.8;
+}
+#section2 #colors {
+	right: 60px;
+	bottom: 0;
+	position: absolute;
+	height: 413px;
+	width: 258px;
+	background-image: url(imgs/colors.gif);
+	background-repeat: no-repeat;
+}
+/* Section 3
+	 * --------------------------------------- */
+#section3 #colors {
+	left: 60px;
+	bottom: 0;
+}
+#section3 p {
+	color: #000000;
+}
+#colors2, #colors3 {
+	position: absolute;
+	height: 163px;
+	width: 362px;
+	z-index: 1;
+	background-repeat: no-repeat;
+	left: 0;
+	margin: 0 auto;
+	right: 0;
+}
+#colors2 {
+	background-image: url(imgs/colors2.gif);
+	top: 0;
+}
+#colors3 {
+	background-image: url(imgs/colors3.gif);
+	bottom: 0;
+}
+/* Section 4
+	 * --------------------------------------- */
+#section4 p {
+	opacity: 0.6;
+}
+/* Overwriting fullPage.js tooltip color
+	* --------------------------------------- */
+#pp-nav.custom .pp-tooltip {
+	color: #AAA;
+}
+#markup {
+	display: block;
+	width: 450px;
+	margin: 20px auto;
+	text-align: left;
+}
+</style>
+</head>
+<body>
+<ul id="menu">
+  <li data-menuanchor="page1" class="active"><a href="#page1">1</a></li>
+  <li data-menuanchor="page2"><a href="#page2">2</a></li>
+  <li data-menuanchor="page3"><a href="#page3">3</a></li>
+  <li data-menuanchor="page4"><a href="#page4">4</a></li>
+</ul>
+<div id="pagepiling">
+  <div class="section" id="section1">
+    <h1>Stereoscape</h1>
+    <p>We combine visual communication and intelligence</p>
+    <br />
+  </div>
+  <div class="section" id="section2">
+    <div class="intro">
+      <div id="colors"></div>
+      <div class="row">
+        <div class="text-justify col-sm-3">
+          <p>By starting your jouney with  digitalized material</p>
+        </div>
+        <div class="col-sm-3 text-justify">
+          <p>By adding the powerful sense of being there</p>
+        </div>
+        <div class="col-sm-3 text-justify">
+          <p>By adding more layers, you can join the real environment as seen  through devices</p>
+        </div>
+        <div class="col-sm-3 text-justify">
+          <p>By combining IoT and industry internet, you can communicate with real world objects and data in VR and AR</p>
+        </div>
+      </div>
+      <div class="row"> <img src="img/ring2.png" width="1385" height="414" alt=""/> </div>
+      <div class="row">
+        <div class="text-justify col-sm-3">
+          <p>By starting your jouney with  digitalized material</p>
+        </div>
+        <div class="col-sm-3 text-justify">
+          <p>By adding the powerful sense of being there</p>
+        </div>
+        <div class="col-sm-3 text-justify">
+          <p>By adding more layers, you can join the real environment as seen  through devices</p>
+        </div>
+        <div class="col-sm-3 text-justify">
+          <p>By combining IoT and industry internet, you can communicate with real world objects and data in VR and AR</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="section3">
+    <div class="intro">
+      <h2>TO BUILD SOLUTIONS THAT INCREASE YOUR VALUE</h2>
+      <p>Our solutions bring you real benefits in cost savings, increased sales, increased productivity, and in creating experiences that leave a mark.</p>
+      <br>
+      <h2>BECAUSE OF THIS</h2>
+      <p>…you can show your products digitally everywhere, without having to worry about space or transport costs.</p>
+      <p> …you no longer need to spend thousands in travel costs sending your best experts around the globe.</p>
+      <p>…you can dramatically reduce your need for physical prototypes.</p>
+      <p>…your workflows and processes get more efficient, the job performances better, and the trainings more efficient.</p>
+      <div id="colors2"></div>
+      <div id="colors3"></div>
+    </div>
+  </div>
+  <div class="section" id="section4">
+    <div class="intro">
+      <h1>Stereoscape sales pipeline, 2016 NOV ></h1>
+      <div class="row">
+        <div class="col-sm-6 text-center">
+          <h2>PLANNING</h2>
+          <div class="text-center col-sm-6">
+            <h3>Key account managers</h3>
+            <p>New story that differentiates, with USP and proof of  sales propositions</p>
+            <p>No push sales, but tailored solutions</p>
+            <p>Ipad, interactive displays, visual examples. Sales materials=own products</p>
+          </div>
+          <div class="text-center col-sm-6">
+            <h3>COO, board network</h3>
+            <p>Decision maker contacts, approvals, business analysis support</p>
+			<h3>CTO, Creative strategists</h3>
+            <p>Proof of concept that proofs the sales proposition</p>
+          </div>
+        </div>
+        <div class="text-center col-sm-3">
+          <h2>CONTACTING</h2>
+          <h3>Key account managers</h3>
+          <p>New story that differentiates, with USP and proof of  sales propositions</p>
+          <p>No push sales, but tailored solutions</p>
+          <p>Ipad, interactive displays, visual examples. Sales materials=own products</p>
+        </div>
+        <div class="text-center col-sm-3">
+          <h2>POST</h2>
+          <h3>Key account managers</h3>
+          <p>Feedback, future projects, client colleague contacts (cross sales), competitor analysis</p>
+          <p>Marketing with testimonial, own SoMe channels, sponsored</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
